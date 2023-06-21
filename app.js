@@ -25,7 +25,7 @@ db.connect((error) => {
 
 app.set('view engine', 'hbs') //for the view engine
 
-const path = require("path")
+const path = require("path") //require path
 const publicDir = path.join(__dirname, './public')
 
 app.use(express.static(publicDir))
