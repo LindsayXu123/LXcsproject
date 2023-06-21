@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Your Map</title>
+    <link rel="stylesheet" href="../css/map.css"> <!-- link to the css file-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <!-- to link to the website with good and simple icons-->
+
+</head>
+
+<script>
+    //change colour table on click, alternates colours
+
+    function changeColour(element) {
+        if (element.style.backgroundColor === 'green') { //if its green it changes to yellow
+            element.style.backgroundColor = 'yellow';
+            element.style.borderColor = "#f2dd52"; //border changes too
+        }
+        else if (element.style.backgroundColor === 'yellow'){ //if its yellow it changes to red on click
+            element.style.backgroundColor = "#f25d52"; 
+            element.style.borderColor = "red" //border changes to darker red
+        }
+        else {
+            element.style.backgroundColor = 'green'; //if its red it changes to green
+            element.style.borderColor = "darkgreen";
+        }
+    }
+</script>
+
+<body>
+    <!-- <script src="db_practice/app.js"></script> -->
+    <h1>Your Map</h1>
+    <div class="screen"> <!--the whole screen--> <!-- this one for the left side-->
+        <div class="reservationsbox"> <!--box for the tables-->
+            <h2>Reservations</h2>
+            <div class="rlist">
+                <div class=list>
+                    <div class="entry"> <!-- the form sections in the reservations-->
+                        <form action = "/reservationsubmission" method = "post">
+                            <input type="checkbox" value="check" id="checkbox"> <!--to check off a reservation-->
+                            <input type="time" id = "reservationTime"> <!--time-->
+                            <input type="text" placeholder="Name" id="name"> <!--name, etc-->
+                            <input type="number" placeholder="# of people" id= "numberPpl">
+                            <input type="phone" placeholder = "Phone Number" id = "phonenumber">
+                            <input type="submit" value = "Add" id = "add"> <!--adds it in-->
+                            <input type="reset" id = "reset">
+                        </form>
+                        </div>
+                        <div class="entry"> <!-- more white boxes in the list-->
+
+                        </div>
+                        <div class="entry">
+
+                        </div>
+                        <div class="entry">
+
+                        </div>
+                        <div class="entry">
+
+                        </div>
+                        <div class="entry">
+
+                        </div>
+                        <div class="entry">
+
+                        </div>
+                        <div class="entry">
+
+                        </div>
+                        <div class="entry">
+
+                        </div>
+                        <div class="entry">
+
+                        </div>
+                    </div>
+                </div>
+            </div> <!--end of box-->
+
+            <div class="map">
+                <a href="home"> <!-- go back to the home page-->
+                    <button class="back">Back</button>
+                </a>
+                <a href="edit"> <!-- go to the edit page-->
+                    <button class="edit">Edit</button>
+                </a>
+            </div>
+
+        </div> <!--end of screen-->
+
+</body>
+
+</html>

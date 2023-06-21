@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../css/register.css"> <!--to link to the css file-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> <!-- for icons-->
+</head>
+<body>
+    <div class = "container"> <!--the screen-->
+        <div class = "register-box"> <!-- the white box in the middle-->
+            <div class = "back"> <!-- to go back to the login page-->
+                <a href = "login">Back</a> <!-- link to go back-->
+            </div>
+            <h1>Create account</h1>
+            <form action="/auth/register" method="POST"> <!--when the submit is clicked, it will execute the code-->
+                <div class = "form-group">
+                    <input type = "text" placeholder = "Username" id = "username" class = "form-control">
+                    <!-- for the username box -->
+                </div>
+                <div class = "form-group">
+                    <input type = "password" placeholder = "Password" id = "password" class = "form-control">
+                    <!-- for the password box -->
+                </div>
+                <div class = "form-group">
+                    <input type = "password" placeholder = "Confirm Password" id = "confirmpassword" class = "form-control">
+                    <!-- to type the same password again-->
+                </div>
+                <div class = "form-group">
+                    <input type = "email" placeholder= "Email" id = "email" class = "form-control">
+                    <!--for the email-->
+                </div>
+                <div class = "form-group">
+                    <input type = "submit" value = "Submit" name = "submit">
+                    <!--the creating account button-->
+                </div>
+            </form>
+            
+        </form>
+        </div>
+    </div>
+</body>
+</html>

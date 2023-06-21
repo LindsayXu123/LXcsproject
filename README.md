@@ -1,2 +1,1 @@
-# LXcsproject
- This is my computer science project
+# Db_practice

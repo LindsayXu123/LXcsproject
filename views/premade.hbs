@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<!-- this is the premade template of a map-->
+<!-- to show the colour changing function-->
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Map</title>
+    <link rel="stylesheet" href="../css/premade.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <!-- to link to the website with good and simple icons-->
+
+</head>
+
+<script>
+    //change colour table on click
+
+    function changeColour(element) {
+        if (element.style.backgroundColor === 'green') { //open
+            element.style.backgroundColor = 'yellow'; //reserved
+            element.style.borderColor = "#f2dd52"; //occupied
+            //there are a total of three colours, they will switch in order when clicked
+            //green to yellow
+        }
+        else if (element.style.backgroundColor === 'yellow') {
+            element.style.backgroundColor = "#f25d52";
+            element.style.borderColor = "red"
+            //yellow to red
+        }
+        else {
+            element.style.backgroundColor = 'green';
+            element.style.borderColor = "darkgreen";
+            //red to green
+        }
+    }
+
+</script>
+
+<body>
+    <!-- <script src="db_practice/app.js"></script> -->
+    <h1>Your Map</h1>
+    <div class="screen"> <!--the whole screen--> <!-- this one for the left side-->
+        <div class="reservationsbox"> <!--box for the reservations-->
+            <h2>Reservations</h2>
+            <div class="rlist">
+                <div class=list>
+                    <div class="entry"> <!-- all the reservations boxes-->
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+
+                    </div>
+                    <div class="entry"> <!-- same for the rest, they are copies-->
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                    <div class="entry">
+                        <form>
+                            <input type="checkbox" value="check" id="checkbox">
+                            <input type="time" id="reservationTime">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="number" placeholder="# of people" id="numberPpl">
+                            <input type="phone" placeholder="Phone Number" id="phonenumber">
+                            <input type="reset" id="reset" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> <!--end of box-->
+
+        <div class="map">
+            <a href="home">
+                <button class="back">Back</button> <!--goes to the home page-->
+            </a>
+            <a href="edit">
+                <button class="edit">Edit</button> <!-- goes to the edit page-->
+            </a>
+            <div class="table one" id="table one" onclick="changeColour(this)">
+                <!--onclick to get the changeColour function-->
+                <p>1</p>
+            </div>
+            <div class="table two" id="table two" onclick="changeColour(this)">
+                <!--same for the rest-->
+                <p>2</p>
+            </div>
+            <div class="table three" id="table three" onclick="changeColour(this)">
+                <p>3</p>
+            </div>
+            <div class="table three" id="table three" onclick="changeColour(this)">
+                <p>3</p>
+            </div>
+            <div class="table four" id="table four" onclick="changeColour(this)">
+                <p>4</p>
+            </div>
+            <div class="table four" id="table four" onclick="changeColour(this)">
+                <p>4</p>
+            </div>
+            <div class="table booth" id="table six" onclick="changeColour(this)">
+                <p>6</p>
+            </div>
+            <div class="table booth" id="table six" onclick="changeColour(this)">
+                <p>6</p>
+            </div>
+            <div class="table eight" id="table eight" onclick="changeColour(this)">
+                <p>8</p>
+            </div>
+            <div class="table eight" id="table eight" onclick="changeColour(this)">
+                <p>8</p>
+            </div>
+            <div class="table ten" id="table ten" onclick="changeColour(this)">
+                <p>10</p>
+            </div>
+        </div>
+
+    </div> <!--end of screen-->
+
+</body>
+
+</html>

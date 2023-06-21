@@ -1,0 +1,299 @@
+body {
+    background-color: #b3ddff; /*background colour*/
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Tahoma, sans-serif; /*fonts used*/
+}
+
+.screen {
+    position: relative; /*for positioning*/
+}
+
+.map {
+    width: 75%;
+    height: 580px;
+    background-color: white;
+    float: left; /*to put side by side with the tables box*/
+    margin-left: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: cornflowerblue;
+    border-radius: 7px;
+}
+
+/*tables box*/
+.box {
+    background-color: #e1e8fc;
+    float: left;
+    width: 22%;
+    height: 580px;
+    top: 10px;
+    margin-left: 10px;
+    border-color: lightgrey;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+}
+
+/*title*/
+h1 {
+    text-align: center;
+    font-size: 20px;
+    padding: 5px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 14px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    margin-top: 16px;
+}
+
+.table {
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    position: absolute;
+}
+
+.one {
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+    position: absolute;
+}
+
+.two {
+    background-color: green;
+    width: 35px;
+    height: 35px;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.three {
+    background-color: green;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.four {
+    background-color: green;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+    transform: rotate(45deg);
+}
+
+.for {
+    background-color: green;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.booth {
+    background-color: green;
+    width: 70px;
+    height: 40px;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+    transition: transform 0.3s ease;
+}
+
+.eight {
+    background-color: green;
+    width: 90px;
+    height: 40px;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.ten {
+    background-color: green;
+    width: 110px;
+    height: 40px;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.rt8 {
+    background-color: green;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.rt10 {
+    background-color: green;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.rt10plus {
+    background-color: green;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    align-self: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.hwall {
+    background-color: black;
+    width: 80px;
+    height: 7px;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.vwall {
+    background-color: black;
+    width: 7px;
+    height: 80px;
+    margin-left: 15px;
+}
+
+.other {
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+    text-align: center;
+    border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+p {
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
+}
+
+.row1 {
+    display: inline-block;
+    width: 35px;
+    height: 45px;
+    padding: 12px;
+    align-self: center;
+    margin-left: 5px;
+}
+
+.row2 {
+    display: inline-block;
+    width: 55px;
+    height: 45px;
+    padding: 12px;
+    align-self: center;
+    margin-left: 5px;
+}
+
+.row3 {
+    display: inline-block;
+    width: 90px;
+    height: 45px;
+    padding: 12px;
+    align-self: center;
+    margin-left: 5px;
+}
+
+.row4 {
+    display: inline-block;
+    width: 55px;
+    height: 50px;
+    padding: 15px;
+    align-self: center;
+}
+
+.walls {
+    display: inline-block;
+    height: 40px;
+    width: 25px;
+    padding: 15px;
+    align-self: center;
+    align-items: center;
+}
+
+.reset {
+    position:fixed;
+    font-size: 18px;
+    padding: 5px;
+    bottom: 75px;
+    left: 50px;;
+    margin-right: 5px;
+    background-color: #c9b3ff;
+    border-radius: 5px;
+}
+
+.save {
+    font-size: 18px;
+    padding: 5px;
+    bottom: 75px;
+    margin-right: 5px;
+    margin-left: 25px;
+    background-color: #c9b3ff;
+    border-radius: 5px;
+    position: fixed;  
+}
+
+.buttons {
+    display: inline-block;
+    align-self: center;
+    align-items: center;
+    bottom: 0;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+/*more tables*/
+
+.one:nth-child(2) {
+    top: calc(100% - 100px);
+}

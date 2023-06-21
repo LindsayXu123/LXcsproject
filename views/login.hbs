@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css"> <!--to link to the css file-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> <!-- to link to the website with good and simple icons-->
+
+</head>
+
+<body>
+    <div class = "container">
+        <div class = "login-box">
+            <div class ="icon">
+                <i class = "far fa-user"></i>
+                <!-- for the login icon -->
+            </div>
+            <h1>LOGIN</h1>
+            <form action="/auth/login" method="POST"> <!--when clicked it will send the data at app.js-->
+                <div class = "form group">
+                    <input type = "text" name = "username" placeholder = "Username" id = "username" class = "form-control" required>
+                    <!-- for the username box -->
+                </div>
+                <div class = "form-group">
+                    <input type = "password" name = "password" placeholder = "Password" id = "password" class = "form-control" required>
+                    <!-- for the password box -->
+                </div>
+                <div class = "form-group">
+                    <input type="submit" value="Login">
+                    <!--for the login button-->
+                </div>
+                <div class = "features">
+                    <a href = "register">Register</a> <!-- brings to register page to create account-->
+                    <a href = "fp">Forgot Password?</a> <!-- brings to forgot password page, but it hasn't been coded yet-->
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

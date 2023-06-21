@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html>
+
+<div id="container">
+  <h1>Your Map</h1>
+  <div class="box">
+    <h2>Tables</h2>
+    <h3>Walls</h3>
+    <a href="map"> <!-- to go to the saved map page-->
+      <button class="save">Save</button>
+    </a>
+    <div class="buttons"> <!--onclick will trigger the functions-->
+      <button class="clear" id="clear" onclick="resetTables()">Clear</button>
+    </div>
+    <div class="buttons">
+      <button class="reset" id="reset" onclick="openMap()">Reset</button>
+    </div>
+  </div>
+
+  <div class="map"></div>
+
+<!-- these are all the tables on the side, not draggable ones-->
+  <div id="tableone">1</div>
+  <div id="tabletwo">2</div>
+  <div id="tablethree">3</div>
+  <div id="tablefour">4</div>
+  <div id="tableb4">4(booth)</div>
+  <div id="tablesix">6</div>
+  <div id="tableb6">6(booth)</div>
+  <div id="tableeight">8</div>
+  <div id="tableten">10 or 10+</div>
+  <div id="tablereight">8</div>
+  <div id="tablerten">10 or 10+</div>
+  <div id="tableother">Other</div>
+
+  <div id="tablevwall"></div> <!--walls-->
+  <div id="tablehwall"></div>
+
+</div>
+
+<head>
+
+  <title>Your Map</title> <!--title-->
+
+  <style>
+    /*css code, mostly just the lengths and widths of the divs (tables), positioning, and then background colour, title, fontsize, etc...*/
+    body {
+      background-color: #b3ddff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Verdana, Tahoma, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 20px;
+      padding: 5px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 16px;
+      margin-top: 14px;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 16px;
+      padding: 5px;
+      margin-top: 320px;
+    }
+
+    .box {
+      background-color: #e1e8fc;
+      float: left;
+      width: 290px;
+      height: 580px;
+      top: 0;
+      margin-left: 10px;
+      border-color: lightgrey;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .map {
+      width: 1020px;
+      height: 580px;
+      background-color: white;
+      float: left;
+      margin-left: 10px;
+      border-style: solid;
+      border-width: 3px;
+      border-color: cornflowerblue;
+      border-radius: 7px;
+      position: relative;
+    }
+
+    #tableone {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 90px;
+      left: 30px;
+      font-size: 14px;
+      background-color: green;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tabletwo {
+      width: 35px;
+      height: 35px;
+      background-color: green;
+      position: absolute;
+      top: 90px;
+      left: 100px;
+      font-size: 14px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tablethree {
+      width: 40px;
+      height: 40px;
+      background-color: green;
+      position: absolute;
+      top: 90px;
+      left: 170px;
+      font-size: 14px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tablefour {
+      width: 40px;
+      height: 40px;
+      background-color: green;
+      position: absolute;
+      top: 90px;
+      left: 240px;
+      font-size: 14px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      transform: rotate(45deg);
+      text-align: center;
+    }
+
+    #tableb4 {
+      width: 70px;
+      height: 40px;
+      background-color: green;
+      position: absolute;
+      top: 160px;
+      left: 30px;
+      font-size: 14px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tablesix {
+      width: 70px;
+      height: 40px;
+      background-color: green;
+      position: absolute;
+      top: 160px;
+      left: 120px;
+      font-size: 14px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tableb6 {
+      width: 70px;
+      height: 40px;
+      background-color: green;
+      position: absolute;
+      top: 160px;
+      left: 210px;
+      font-size: 14px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tableeight {
+      width: 90px;
+      height: 40px;
+      background-color: green;
+      position: absolute;
+      top: 230px;
+      left: 30px;
+      font-size: 14px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tableten {
+      width: 110px;
+      height: 40px;
+      background-color: green;
+      position: absolute;
+      top: 230px;
+      left: 150px;
+      font-size: 14px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tablereight {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: green;
+      position: absolute;
+      top: 300px;
+      left: 30px;
+      font-size: 14px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tablerten {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: green;
+      position: absolute;
+      top: 300px;
+      left: 125px;
+      font-size: 14px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tableother {
+      width: 50px;
+      height: 50px;
+      background-color: rgb(87, 87, 240);
+      position: absolute;
+      top: 305px;
+      left: 230px;
+      font-size: 14px;
+      border-color: darkblue;
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+    }
+
+    #tablevwall {
+      width: 7px;
+      height: 80px;
+      background-color: black;
+      position: absolute;
+      top: 420px;
+      left: 70px;
+    }
+
+    #tablehwall {
+      width: 80px;
+      height: 7px;
+      background-color: black;
+      position: absolute;
+      top: 460px;
+      left: 150px;
+    }
+
+    #container {
+      width: 100%;
+      height: 630px;
+      border: 1px solid aquamarine;
+      position: relative;
+    }
+
+    .table {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      cursor: move;
+    }
+
+    .one {
+      background-color: green;
+      width: 30px;
+      height: 30px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .two {
+      background-color: green;
+      width: 35px;
+      height: 35px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .three {
+      background-color: green;
+      width: 40px;
+      height: 40px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .four {
+      background-color: green;
+      width: 40px;
+      height: 40px;
+      transform: rotate(45deg);
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .booth4 {
+      background-color: green;
+      width: 70px;
+      height: 40px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .six {
+      background-color: green;
+      width: 70px;
+      height: 40px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .booth6 {
+      background-color: green;
+      width: 70px;
+      height: 40px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .eight {
+      background-color: green;
+      width: 90px;
+      height: 40px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .ten {
+      background-color: green;
+      width: 110px;
+      height: 40px;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .reight {
+      background-color: green;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .rten {
+      background-color: green;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border-color: darkgreen;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .other {
+      background-color: rgb(80, 89, 211);
+      width: 50px;
+      height: 50px;
+      border-color: darkblue;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .hwall {
+      background-color: black;
+      width: 80px;
+      height: 7px;
+    }
+
+    .vwall {
+      background-color: black;
+      width: 7px;
+      height: 80px;
+    }
+
+    .reset {
+      position: absolute;
+      font-size: 18px;
+      padding: 5px;
+      bottom: 65px;
+      left: 50px;
+      background-color: #c9b3ff;
+      border-radius: 5px;
+    }
+
+    .clear {
+      position: absolute;
+      font-size: 18px;
+      padding: 5px;
+      bottom: 65px;
+      left: 131px;
+      background-color: #c9b3ff;
+      border-radius: 5px;
+    }
+
+    .save {
+      font-size: 18px;
+      padding: 5px;
+      bottom: 65px;
+      left: 210px;
+      background-color: #c9b3ff;
+      border-radius: 5px;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    //variables for them
+    var container = document.getElementById('container'); //the whole screen
+    var addOne = document.getElementById('tableone'); //create the 1-person table
+    var addTwo = document.getElementById('tabletwo'); //same but 2-person
+    var addThree = document.getElementById('tablethree'); //etc
+    var addfour = document.getElementById('tablefour');
+    var addbfour = document.getElementById('tableb4');
+    var addsix = document.getElementById('tablesix');
+    var addbsix = document.getElementById('tableb6');
+    var addeight = document.getElementById('tableeight');
+    var addten = document.getElementById('tableten');
+    var addreight = document.getElementById('tablereight');
+    var addrten = document.getElementById('tablerten');
+    var addother = document.getElementById('tableother');
+    var addv = document.getElementById('tablevwall');
+    var addh = document.getElementById('tablehwall');
+
+    //the on click
+    //can interact with the item
+    //when the divs tables from above are clicked, it will make a copy of the div
+    addOne.addEventListener('click', createTableone); //eventlistener for 1-person table, then go to function to create
+    addTwo.addEventListener('click', createTabletwo);//etc
+    addThree.addEventListener('click', createTablethree);
+    addfour.addEventListener('click', createTablefour);
+    addbfour.addEventListener('click', createTablebfour);
+    addsix.addEventListener('click', createTablesix);
+    addbsix.addEventListener('click', createTablebsix);
+    addeight.addEventListener('click', createTableeight);
+    addten.addEventListener('click', createTableten);
+    addreight.addEventListener('click', createTablereight);
+    addrten.addEventListener('click', createTablerten);
+    addother.addEventListener('click', createTableother);
+    addv.addEventListener('click', createTablev);
+    addh.addEventListener('click', createTableh);
+
+    var dragData = null;
+    //adding drop and drag functions on the container
+    container.addEventListener('dragstart', dragStart); //when it first gets dragged
+    container.addEventListener('dragover', dragOver); //finishing drag
+    container.addEventListener('drop', drop); //drop
+    container.addEventListener('keydown', deleteTable); //for deleting the table
+
+    function createTableone() { //copies the div of table 1, makes it draggable and adds all the drag and drop functions to it
+      var table1 = document.createElement('div');
+      table1.className = 'table one';
+      table1.draggable = true; //makes draggable
+      table1.textContent = "1"; //for the 1 in the center of the table
+      table1.style.textAlign = "center";
+
+      table1.addEventListener('dragstart', dragStart); //dragstart
+      table1.addEventListener('dragend', dragEnd); //dragend
+      table1.addEventListener('dblclick', changeColour); //temporary function to change colours on this page
+
+      container.appendChild(table1); //appear on screen
+      //makeDraggable(table1);
+    }
+
+    function createTabletwo() { //creates div2, table 2, makes draggable and adds the drag and drop functions
+      var table2 = document.createElement('div');
+      table2.className = 'table two';
+      table2.draggable = true; //makes it draggable
+      table2.textContent = "2"; //for the text 2
+      table2.style.textAlign = "center";
+
+      table2.addEventListener('dragstart', dragStart); //the drag and drop functions
+      table2.addEventListener('dragend', dragEnd);
+      table2.addEventListener('dblclick', changeColour);
+
+      container.appendChild(table2); //appear on the screen
+    }
+
+    function createTablethree() { //creates div3, table 3, makes draggable and adds the drag and drop functions
+      var table3 = document.createElement('div');
+      table3.className = 'table three'; 
+      table3.draggable = true; //etc, same as before
+      table3.textContent = "3";
+      table3.style.textAlign = "center";
+
+      table3.addEventListener('dragstart', dragStart);
+      table3.addEventListener('dragend', dragEnd);
+      table3.addEventListener('dblclick', changeColour);
+
+      container.appendChild(table3);
+    }
+
+    function createTablefour() { //creates div4, table 4, makes draggable and adds the drag and drop functions
+      var table4 = document.createElement('div');
+      table4.className = 'table four';
+      table4.draggable = true;
+      table4.textContent = "4";
+      table4.style.textAlign = "center";
+
+      table4.addEventListener('dragstart', dragStart);
+      table4.addEventListener('dragend', dragEnd);
+      table4.addEventListener('dblclick', changeColour);
+
+      container.appendChild(table4);
+    }
+
+    function createTablebfour() { //creates divb4, table booth 4, makes draggable and adds the drag and drop functions
+      var tableb4 = document.createElement('div');
+      tableb4.className = 'table booth4';
+      tableb4.draggable = true;
+      tableb4.textContent = "4(booth)";
+      tableb4.style.textAlign = "center";
+
+      tableb4.addEventListener('dragstart', dragStart);
+      tableb4.addEventListener('dragend', dragEnd);
+      tableb4.addEventListener('dblclick', changeColour);
+      tableb4.addEventListener('mousedown', rotateT);
+      tableb4.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+      });
+
+      container.appendChild(tableb4); //etc...
+    }
+
+    function createTablesix() { //creates div6, table 6, makes draggable and adds the drag and drop functions
+      var table6 = document.createElement('div');
+      table6.className = 'table six';
+      table6.draggable = true;
+      table6.textContent = "6";
+      table6.style.textAlign = "center";
+
+      table6.addEventListener('dragstart', dragStart);
+      table6.addEventListener('dragend', dragEnd);
+      table6.addEventListener('dblclick', changeColour);
+      table6.addEventListener('mousedown', rotateT);
+      table6.addEventListener('contextmenu', function (event) {
+        event.preventDefault(); // Prevent the default context menu from appearing
+      });
+
+      container.appendChild(table6);
+    }
+
+    function createTablebsix() { //creates div6, table 6 booth, makes draggable and adds the drag and drop functions
+      var tableb6 = document.createElement('div');
+      tableb6.className = 'table booth6';
+      tableb6.draggable = true;
+      tableb6.textContent = "6(booth)";
+      tableb6.style.textAlign = "center";
+
+      tableb6.addEventListener('dragstart', dragStart);
+      tableb6.addEventListener('dragend', dragEnd);
+      tableb6.addEventListener('dblclick', changeColour);
+      tableb6.addEventListener('mousedown', rotateT);
+      tableb6.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+      });
+
+      container.appendChild(tableb6);
+    }
+
+    function createTableeight() { //creates div8, table 8, makes draggable and adds the drag and drop functions
+      var table8 = document.createElement('div');
+      table8.className = 'table eight';
+      table8.draggable = true;
+      table8.textContent = "8";
+      table8.style.textAlign = "center";
+
+      table8.addEventListener('dragstart', dragStart);
+      table8.addEventListener('dragend', dragEnd);
+      table8.addEventListener('dblclick', changeColour);
+      table8.addEventListener('mousedown', rotateT);
+      table8.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+      });
+
+      container.appendChild(table8);
+    }
+
+    function createTableten() { //creates div10, table 10, makes draggable and adds the drag and drop functions
+      var table10 = document.createElement('div');
+      table10.className = 'table ten';
+      table10.draggable = true;
+      table10.textContent = "10 or 10+";
+      table10.style.textAlign = "center";
+
+      table10.addEventListener('dragstart', dragStart);
+      table10.addEventListener('dragend', dragEnd);
+      table10.addEventListener('dblclick', changeColour);
+      table10.addEventListener('mousedown', rotateT);
+      table10.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+      });
+
+      container.appendChild(table10);
+    }
+    //round tables
+    function createTablereight() { //creates div, table round 8, makes draggable and adds the drag and drop functions
+      var tabler8 = document.createElement('div');
+      tabler8.className = 'table reight';
+      tabler8.draggable = true;
+      tabler8.textContent = "8";
+      tabler8.style.textAlign = "center";
+
+      tabler8.addEventListener('dragstart', dragStart);
+      tabler8.addEventListener('dragend', dragEnd);
+      tabler8.addEventListener('dblclick', changeColour);
+
+      container.appendChild(tabler8);
+    }
+
+    function createTablerten() { //creates div, table 2round 10, makes draggable and adds the drag and drop functions
+      var tabler10 = document.createElement('div');
+      tabler10.className = 'table rten';
+      tabler10.draggable = true;
+      tabler10.textContent = "10 or 10+";
+      tabler10.style.textAlign = "center";
+
+      tabler10.addEventListener('dragstart', dragStart);
+      tabler10.addEventListener('dragend', dragEnd);
+      tabler10.addEventListener('dblclick', changeColour);
+
+      container.appendChild(tabler10);
+    }
+
+    function createTableother() { //same as previous
+      var tableo = document.createElement('div');
+      tableo.className = 'table other';
+      tableo.draggable = true;
+      tableo.textContent = "Other";
+      tableo.style.textAlign = "center";
+
+      tableo.addEventListener('dragstart', dragStart);
+      tableo.addEventListener('dragend', dragEnd);
+
+      container.appendChild(tableo);
+    }
+    //walls
+    function createTablev() { //same but these are walls instead, this is the vertical wall
+      var tablev = document.createElement('div');
+      tablev.className = 'table vwall';
+      tablev.draggable = true;
+
+      tablev.addEventListener('dragstart', dragStart);
+      tablev.addEventListener('dragend', dragEnd);
+
+      container.appendChild(tablev);
+    }
+
+    function createTableh() { //same as previous, but horizontal
+      var tableh = document.createElement('div');
+      tableh.className = 'table hwall';
+      tableh.draggable = true;
+
+      tableh.addEventListener('dragstart', dragStart);
+      tableh.addEventListener('dragend', dragEnd);
+
+      container.appendChild(tableh);
+    }
+    //when user starts dragging
+    function dragStart(event) {
+      dragData = {
+        element: event.target, //event target the element being dragged
+        initialX: event.clientX - event.target.offsetLeft, //necessary drag and drop information
+        initialY: event.clientY - event.target.offsetTop
+      };
+
+      event.dataTransfer.setData('text/plain', '');
+      event.dataTransfer.setDragImage(event.target, 0, 0);
+    }
+
+    function dragEnd() {
+      dragData = null;
+    }
+
+    function dragOver(event) { //allow the dropping of shapes (in the map area)
+      event.preventDefault();
+    }
+
+    function drop(event) { //position is calculated relative to the container
+      event.preventDefault();
+
+      if (dragData) {
+        var offsetX = event.clientX - container.getBoundingClientRect().left - dragData.initialX; //get positions relative to the container
+        var offsetY = event.clientY - container.getBoundingClientRect().top - dragData.initialY; //returns properties like left right top bottom to get position etc
+
+        dragData.element.style.left = offsetX + 'px'; //horizontal distance, px for concatenating the value of offset with px to a string
+        dragData.element.style.top = offsetY + 'px'; //vertical distance
+      }
+    }
+
+//makedraggable
+    function makeDraggable(element) {
+      element.addEventListener('mousedown', dragStart);
+      element.addEventListener('mouseup', dragEnd);
+      element.addEventListener('mousemove', drag);
+    }
+
+    //reset button
+    //var reset = document.getElementById('reset');
+    //var tables = document.querySelectorAll(".table");
+
+    function resetTables() { //reset function to delete all tables
+      var tables = container.querySelectorAll('.table'); //selects all with table in it
+      tables.forEach(function (table) {
+        table.remove(); //deletes all that is selected
+      });
+    }
+
+//will make all the tables green
+    function openMap() {
+      var tables = container.querySelectorAll('.table'); //any div with table in it
+      tables.forEach(function (table) {
+        table.style.backgroundColor = 'green'; //turns all the tables green
+        table.style.borderColor = 'darkgreen'; //turns border colour to dakr green
+      })
+    }
+
+    //save button
+    function saveItems() {
+      var tables = document.getElementsByClassName("table");
+      draggedItems = []; //array for the items
+//unfinished
+      for (var i = 0; i < tables.length; i++) {
+        var table = tables[i];
+        var item = {
+          left: table.style.left,
+          top: table.style.top,
+        };
+        draggedItems.push(item);
+      }
+    }
+
+    /*delete button*/
+    function deleteTable(event) {
+      if (event.keyCode === 8 && event.target.className.includes('table')) {
+        event.target.remove(); //deletes the table on backspace
+      }
+    }
+
+    //change colour on this page (temporary function because save button is incomplete)
+    function changeColour() {
+      if (this.style.backgroundColor === 'green') { //open
+        this.style.backgroundColor = 'yellow'; //reserved
+        this.style.borderColor = "#f2dd52"; //occupied
+        //there are a total of three colours, they will switch in order when clicked
+        //green to yellow
+      }
+      else if (this.style.backgroundColor === 'yellow') {
+        this.style.backgroundColor = "#f25d52";
+        this.style.borderColor = "red"
+        //yellow to red
+      }
+      else {
+        this.style.backgroundColor = 'green';
+        this.style.borderColor = "darkgreen";
+        //red to green
+      }
+    }
+
+    //rotate on right click
+    function rotateT() {
+      if (event.button === 2) {
+        this.style.transform = 'rotate(90deg)'; //rotates 90 degrees clockwise
+      }
+    }
+
+  </script>
+</body>
+
+</html>
